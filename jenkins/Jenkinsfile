@@ -5,13 +5,13 @@ pipeline {
         stage('Build') {
             steps {
                sh 'cd /var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/my_maven/bin/'
-                sh 'mvn -B -DskipTests clean package'
+                sh 'mvn -f -B -DskipTests clean package'
             }
         }
         stage('Test') {
             steps {
                 sh 'pwd'
-                sh 'mvn test'
+                sh 'mvn -f test'
             }
             post {
                 always {
